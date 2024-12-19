@@ -16,6 +16,9 @@ offers = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    if not skus:
+        return 0 
+    
     if not isinstance(skus, str):
         return -1
     
@@ -28,8 +31,9 @@ def checkout(skus):
         
         for sku in list(skus):
             if sku not in products:
-                continue
-            elif sku in basket:
+                return -1 
+            
+            if sku in basket:
                 basket[sku] += 1
             else:
                 basket[sku] = 1
@@ -52,6 +56,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
