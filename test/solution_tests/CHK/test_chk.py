@@ -3,9 +3,14 @@ import pytest
 
 
 @pytest.mark.parametrize("skus, expected_result", [
-    ("Robert", "Hello, Robert!"),
-    ("", "Hello, World!"),
-    ("1955489", "Hello, 1955489!"),
+    ("A", 50),
+    ("B", 30),
+    ("C", 20),
+    ("D", 15),
+    ("", -1),
+    ("Z", -1),
+    ("AA", -1),
+    (100, -1),
 ])
-def test_hello(skus, expected_result):
+def test_checkout(skus, expected_result):
     assert checkout_solution.checkout(skus) == expected_result
