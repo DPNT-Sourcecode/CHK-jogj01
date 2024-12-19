@@ -18,7 +18,7 @@ def checkout(skus):
         return prod[skus]
     
     if len(skus) > 1:
-        basket = defaultdict(skus.split(""), 0)
+        basket = defaultdict(list(skus), 0)
         print(basket)
         return skus
 
@@ -28,11 +28,14 @@ def checkout(skus):
 
 if __name__ == "__main__":
 
+    import os
     import sys
 
-    skus = sys.argv[1]
+    print(os.environ['PYTHONPATH'])
 
+    skus = sys.argv[1]
     checkout(skus)
+
 
 
 
