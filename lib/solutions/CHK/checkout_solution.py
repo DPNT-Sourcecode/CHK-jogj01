@@ -19,9 +19,12 @@ def checkout(skus):
     
     if len(skus) > 1:
         sku_list = list(skus)
-        basket = defaultdict(int, 0)
+        basket = {}
         for sku in sku_list:
-            basket[sku] += 1
+            if sku in basket:
+                basket[sku] += 1
+            else:
+                basket[sku] = 1
         print(basket)
         return -1
 
@@ -34,11 +37,5 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
-
-
-
-
-
-
 
 
