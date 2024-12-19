@@ -4,6 +4,9 @@ from collections import defaultdict
 # skus = unicode string
 def checkout(skus):
 
+    if not isinstance(skus, str):
+        return -1
+    
     products = {
        'A': 50,
        'B': 30,
@@ -11,16 +14,18 @@ def checkout(skus):
        'D': 15,
     }
 
-    if not isinstance(skus, str):
-        return -1
-
     if len(skus) == 1 and skus in products.keys():
         return products[skus]
     
+    offers = {
+        'A': {'q': 3, 'price': 150},
+        'B': {'q': 2, 'price': 45}
+    }
+    
     if len(skus) > 1:
         total = 0
-
         basket = {}
+        
         for sku in list(skus):
             if sku in basket:
                 basket[sku] += 1
