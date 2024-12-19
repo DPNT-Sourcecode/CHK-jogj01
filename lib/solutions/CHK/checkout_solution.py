@@ -1,4 +1,5 @@
 from collections import defaultdict
+from variables import products, offers
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -7,20 +8,8 @@ def checkout(skus):
     if not isinstance(skus, str):
         return -1
     
-    products = {
-       'A': 50,
-       'B': 30,
-       'C': 20,
-       'D': 15,
-    }
-
     if len(skus) == 1 and skus in products.keys():
         return products[skus]
-    
-    offers = {
-        'A': {'q': 3, 'price': 150},
-        'B': {'q': 2, 'price': 45}
-    }
     
     if len(skus) > 1:
         total = 0
@@ -45,6 +34,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
