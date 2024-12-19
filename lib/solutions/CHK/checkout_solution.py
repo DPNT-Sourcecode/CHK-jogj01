@@ -4,7 +4,7 @@ from collections import defaultdict
 # skus = unicode string
 def checkout(skus):
 
-    prod = {
+    products = {
        'A': 50,
        'B': 30,
        'C': 20,
@@ -14,8 +14,8 @@ def checkout(skus):
     if not isinstance(skus, str):
         return -1
 
-    if len(skus) == 1 and skus in prod.keys():
-        return prod[skus]
+    if len(skus) == 1 and skus in products.keys():
+        return products[skus]
     
     if len(skus) > 1:
         total = 0
@@ -40,6 +40,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
