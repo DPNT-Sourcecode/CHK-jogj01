@@ -27,7 +27,9 @@ def checkout(skus):
         basket = {}
         
         for sku in list(skus):
-            if sku in basket:
+            if sku not in products:
+                continue
+            elif sku in basket:
                 basket[sku] += 1
             else:
                 basket[sku] = 1
@@ -50,6 +52,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
