@@ -27,10 +27,11 @@ def checkout(skus):
             if not sku in offers:
                 total += products[sku] * quantity
             else:
-                single_items = basket[sku] % offers[sku]['q']
-                bundles = 
-        
-        return -1
+                num_single_items = basket[sku] % offers[sku]['q']
+                num_bundles = int(basket[sku] / offers[sku]['q'])
+                total += (num_single_items * products[sku] + num_bundles * offers[sku]['p'])
+        print(total)
+        return total
 
 
     return -1

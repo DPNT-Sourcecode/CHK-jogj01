@@ -5,7 +5,9 @@ products = {
     'D': 15,
 }
 
+# q => quantity
+# p => total price
 offers = {
-    'A': {'q': 3, 'price': 150},
-    'B': {'q': 2, 'price': 45}
+    'A': {'q': 3, 'p': 150},
+    'B': {'q': 2, 'p': 45}
 }
