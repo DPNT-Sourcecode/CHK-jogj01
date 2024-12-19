@@ -3,9 +3,9 @@ import pytest
 
 
 @pytest.mark.parametrize("friend_name, expected_result", [
-    ("Robert", "Hello, World!"),
+    ("Robert", "Hello, Robert!"),
     ("", "Hello, World!"),
-    ("1955489", "Hello, World!"),
+    ("1955489", "Hello, 1955489!"),
 ])
 def test_hello(friend_name, expected_result):
     assert hello_solution.hello(friend_name) == expected_result
