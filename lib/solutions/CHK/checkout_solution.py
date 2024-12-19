@@ -1,4 +1,4 @@
-
+from collections import defaultdict
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -16,6 +16,10 @@ def checkout(skus):
 
     if len(skus) == 1 and skus in prod.keys():
         return prod[skus]
+    
+    if len(skus) > 1:
+
 
     return -1
+
 
