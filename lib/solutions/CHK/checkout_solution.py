@@ -3,9 +3,6 @@ from variables import products, offers
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    print(products)
-    print(offers)
-
     if not isinstance(skus, str):
         return -1
     
@@ -39,5 +36,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
