@@ -11,7 +11,11 @@ def checkout(skus):
        'D': 15,
     }
 
+    if not isinstance(skus, str):
+        return -1
+
     if len(skus) == 1 and skus in prod.keys():
         return prod[skus]
 
     return -1
+
