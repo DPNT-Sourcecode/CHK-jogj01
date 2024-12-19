@@ -11,6 +11,9 @@ import pytest
     (100, -1),
     ("", 0),
     ("AA", 100),
+    ("AAA", 130),
+    ("AAAA", 180),
+    ("AAAAA", 230),
     ("AABCDBAACDDD", 325),
     ("AABCDBA", 210),
     ("AABZTCDBA", -1),
@@ -20,5 +23,6 @@ import pytest
 ])
 def test_checkout(skus, expected_result):
     assert checkout_solution.checkout(skus) == expected_result
+
 
 
