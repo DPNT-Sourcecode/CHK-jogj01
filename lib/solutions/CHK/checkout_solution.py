@@ -48,9 +48,9 @@ def checkout(skus):
                 basket[sku] = {"q": 1, "total": 0}
         print(basket)
 
-        for sku, dict_ in basket.items():
+        for sku, val_dict in basket.items():
             if offer_dict := offers.get(sku, None):
-                print(offer_dict)
+                
 
 
         # for sku,quantity in basket.items():
@@ -72,6 +72,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
