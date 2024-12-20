@@ -54,7 +54,8 @@ def checkout(skus):
         print(basket)
 
         for sku, qp_dict in basket.items():
-            if sku in offers and qp_dict['q'] > 0:
+            basket_q = qp_dict['q']
+            if sku in offers and basket_q > 0:
 
                 # e.g. for product A:
                 # {
@@ -74,6 +75,8 @@ def checkout(skus):
                 sorted_q = sorted(offer_dict.keys(), reverse=True)
                 print(sorted_q)
                 print()
+
+                remaining_q = 
                 
         
         return basket
@@ -172,6 +175,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
