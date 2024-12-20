@@ -29,4 +29,3 @@ import pytest
 ])
 def test_checkout(skus, expected_result):
     assert checkout_solution.checkout(skus) == expected_result
-
