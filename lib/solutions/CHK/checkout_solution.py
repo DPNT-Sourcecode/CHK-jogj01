@@ -85,12 +85,23 @@ def checkout(skus):
                 while i < len(sorted_q):
                     # offer_list = [{'sku': 'A', 'q': 5, 'p': 200}]
                     # offer_list = [{'sku': 'A', 'q': 3, 'p': 130}]
+                    # offer_list = [
+                    #   {'sku': 'E', 'q': 2, 'p': 80},
+                    #   {'sku': 'B', 'q': 1, 'p': -30}
+                    # ]
                     offer_list = offer_dict[sorted_q[i]]
                     print(offer_list)
 
                     for dict_ in offer_list:
                         sku_to_update = dict_["sku"]
-                        if sku_to_update == sku:
+
+                        if sku_to_update != sku:
+                            try:
+                                basket[sku_to_update]["total"] += dict_['q']
+                            except:
+                                pass
+
+                        else:
                             num_bundles = int(remaining_items / dict_['q'])
                             basket[sku_to_update]["total"] += num_bundles * dict_['p']
                             i += 1
@@ -117,6 +128,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
