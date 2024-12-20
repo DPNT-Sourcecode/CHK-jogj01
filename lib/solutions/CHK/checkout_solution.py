@@ -19,7 +19,7 @@ offers = {
     'E': {
         2: [
             {"sku": "E", "q": 2, "p": 80},
-            {"sku": "B", "q": 1, "p": -30}
+            {"sku": "B", "q": 2, "p": 30}
         ]
     }
 }
@@ -84,6 +84,7 @@ def checkout(skus):
                         remaining_items = basket_q
                         for dict_ in offer_list:
                             sku_to_update = dict_['sku']
+                            basket[sku_to_update]["p"] = 0
                             
                             num_bundles = int(remaining_items / dict_['q'])
                             single_items = remaining_items % dict_['q']
@@ -193,6 +194,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
