@@ -3,6 +3,7 @@ products = {
     'B': 30,
     'C': 20,
     'D': 15,
+    'E': 40
 }
 
 offers = {
@@ -54,7 +55,7 @@ def checkout(skus):
             if offer_dict := offers.get(sku, None):
                 print(offer_dict)
                 for offer_q in offer_dict.keys():
-                    if offer_q >= basket_q:
+                    if basket_q >= offer_q:
                         offer = offer_dict[offer_q]
                         print(offer)
 
@@ -78,5 +79,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
