@@ -74,7 +74,6 @@ def checkout(skus):
                 # [2]
                 sorted_q = sorted(offer_dict.keys(), reverse=True)
                 print(sorted_q)
-                print()
 
                 remaining_items = basket_q
                 for offer_q in sorted_q:
@@ -99,8 +98,7 @@ def checkout(skus):
                         
                         basket[sku_to_update]["p"] += num_bundles * dict_['p']
                         remaining_items = single_items
-                        print(basket)
-                        
+
                 basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
                 print(basket)
                 print()
@@ -202,6 +200,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
