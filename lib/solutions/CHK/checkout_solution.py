@@ -43,10 +43,9 @@ def checkout(skus):
                 return -1 
             
             if sku in basket:
-                basket[sku] += 1
+                basket[sku]["q"] += 1
             else:
-                basket[sku] = 1
-                basket["total"] = 0
+                basket[sku] = {"q": 1, "total": 0}
         print(basket)
         return 0
 
@@ -68,6 +67,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
