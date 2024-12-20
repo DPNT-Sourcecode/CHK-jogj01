@@ -49,6 +49,13 @@ def checkout(skus):
                 basket[sku] = {"q": 1, "total": 0}
         print(basket)
 
+        # basket = {
+        #   'A': {'q': 3, 'total': 0}, 
+        #   'B': {'q': 2, 'total': 0}, 
+        #   'C': {'q': 1, 'total': 0}, 
+        #   'D': {'q': 1, 'total': 0}, 
+        #   'E': {'q': 2, 'total': 0}
+        # }
         for sku, val_dict in basket.items():
             basket_q = val_dict["q"]
             print(basket_q)
@@ -79,6 +86,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
