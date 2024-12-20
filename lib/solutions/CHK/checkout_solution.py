@@ -83,6 +83,7 @@ def checkout(skus):
                 i = 0
                 remaining_items = basket_q
                 while i < len(sorted_q):
+                    print(i, remaining_items)
                     # offer_list = [{'sku': 'A', 'q': 5, 'p': 200}]
                     # offer_list = [{'sku': 'A', 'q': 3, 'p': 130}]
                     # offer_list = [
@@ -103,6 +104,8 @@ def checkout(skus):
 
                         else:
                             num_bundles = int(remaining_items / dict_['q'])
+                            print(num_bundles)
+                            print(remaining_items % dict_['q'])
                             basket[sku_to_update]["total"] += num_bundles * dict_['p']
                             i += 1
                             remaining_items -= dict_['q']
@@ -128,6 +131,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
