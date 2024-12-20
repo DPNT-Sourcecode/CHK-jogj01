@@ -65,7 +65,7 @@ def checkout(skus):
 
                 # e.g. for product E:
                 # {
-                #   2: [{'sku': 'B', 'q': 2, 'p': 30}]
+                #   2: [{'sku': 'B', 'q': 1, 'p': 0}]
                 # }
                 offer_dict = offers.get(sku)
                 print(offer_dict)
@@ -198,6 +198,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
