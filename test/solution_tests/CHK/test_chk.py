@@ -21,7 +21,10 @@ import pytest
     ("AxA", -1),
     ("AACDAEE", 245),
     ("AABCDAEE", 245),
-    ("AABCDBAEE", 260)
+    ("AABCDBAEE", 260),
+    ("ABCDE", 155),
+    ("AAAAAAAA", 330),
+    ("AAAAAAAAA", 400)
 
 ])
 def test_checkout(skus, expected_result):
