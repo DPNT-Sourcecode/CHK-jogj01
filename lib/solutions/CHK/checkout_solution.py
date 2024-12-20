@@ -37,7 +37,7 @@ def checkout(skus):
         return products[skus]
     
     if len(skus) > 1:
-        basket = {sku: {"q": 0, "inter": [], "p": 0} for sku in products.keys()}
+        basket = {sku: {"q": 0, "inter": {}, "p": 0} for sku in products.keys()}
         for sku in list(skus):
             if sku not in products:
                 return -1 
@@ -90,11 +90,11 @@ def checkout(skus):
                             print(sku_to_update, num_bundles, single_items)
                             
                             # basket[sku_to_update]["p"] += num_bundles * dict_['p']
-                            basket[sku_to_update]["inter"].append(num_bundles, dict_['p'])
+                            basket[sku_to_update]["inter"].append([num_bundles, dict_['p']])
                             remaining_items = single_items
 
                         # basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
-                        basket[sku_to_update]["inter"].append(remaining_items, products[sku_to_update])
+                        basket[sku_to_update]["inter"].append([remaining_items, products[sku_to_update]])
                         print(basket)
                         print()
         
@@ -195,6 +195,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
