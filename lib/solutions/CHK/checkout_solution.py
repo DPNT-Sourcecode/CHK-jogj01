@@ -53,17 +53,19 @@ def checkout(skus):
             basket[sku]["total"] += products[sku]
         print(basket)
 
-        for sku, dict_ in basket.items():
+        for sku, qp_dict in basket.keys():
             if sku in offers:
-                # offer_dict = {
+
+                # e.g. for product A:
+                # {
                 #   3: [{'sku': 'A', 'q': 3, 'p': 130}], 
                 #   5: [{'sku': 'A', 'q': 5, 'p': 200}]}
                 # }
-                # offer_dict = {
-                #   2: [
-                #       {'sku': 'E', 'q': 2, 'p': 80},
-                #       {'sku': 'B', 'q': 1, 'p': -30},
-                # ]
+
+                # e.g. for product E:
+                # {
+                #   2: [{'sku': 'B', 'q': 2, 'p': 30}]
+                # }
                 offer_dict = offers.get(sku)
                 print(offer_dict)
                 
@@ -71,6 +73,7 @@ def checkout(skus):
                 # [2]
                 sorted_q = sorted(offer_dict.keys(), reverse=True)
                 print(sorted_q)
+                print()
                 
         
         return basket
@@ -169,6 +172,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
