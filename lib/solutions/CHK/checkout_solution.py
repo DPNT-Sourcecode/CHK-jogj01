@@ -13,16 +13,13 @@ offers = {
     },
     
     'B': {
-        2: [
-            {"sku": "B", "q": 2, "p": 45},
-            {"sku": "E", "q": 2, "p": 30}
-        ]
+        2: [{"sku": "B", "q": 2, "p": 45}]
     },
 
     'E': {
         2: [
             {"sku": "E", "q": 2, "p": 80},
-            # {"sku": "B", "q": 2, "p": 30}
+            {"sku": "B", "q": 2, "p": 30}
         ]
     }
 }
@@ -61,7 +58,7 @@ def checkout(skus):
                 #   5: [{'sku': 'A', 'q': 5, 'p': 200}]}
                 # }
 
-                # e.g. for product E:
+                # e.g. for product B:
                 # {
                 #   2: [
                 #       {'sku': 'E', 'q': 2, 'p': 80},
@@ -197,6 +194,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
