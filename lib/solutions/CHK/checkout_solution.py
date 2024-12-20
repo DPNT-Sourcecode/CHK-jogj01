@@ -59,10 +59,7 @@ def checkout(skus):
         for sku, val_dict in basket.items():
             basket_q = val_dict["q"]
 
-            if basket_q == 1:
-                basket[sku]["total"] += products[sku] * basket_q
-
-            elif sku not in offers:
+            if sku not in offers:
                 basket[sku]["total"] += products[sku] * basket_q
 
             else:
@@ -71,13 +68,17 @@ def checkout(skus):
                 #   5: [{'sku': 'A', 'q': 5, 'p': 200}]}
                 # }
                 offer_dict = offers.get(sku)
+                print(offer_dict)
                 
+                # [5, 3]
                 sorted_q = sorted(offer_dict.keys(), reverse=True)
+                print(sorted_q)
                 
                 i = 0
                 remaining_items = basket_q
                 while i < len(sorted_q):
                     # offer_list = [{'sku': 'A', 'q': 5, 'p': 200}]
+                    # offer_list = [{'sku': 'A', 'q': 3, 'p': 130}]
                     offer_list = offer_dict[sorted_q[i]]
                     print(offer_list)
 
@@ -110,6 +111,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
