@@ -5,20 +5,21 @@ products = {
     'D': 15,
 }
 
-# q => quantity
-# p => total price
 offers = {
     'A': {
-        3: {},
-        5: {}
+        3: [{"sku": "A", "q": 3, "p": 130}],
+        5: [{"sku": "A", "q": 5, "p": 200}]
     },
     
     'B': {
-        2: {}
+        2: [{"sku": "B", "q": 2, "p": 45}]
     },
 
     'E': {
-        2: {}
+        2: [
+            {"sku": "E", "q": 2, "p": 80},
+            {"sku": "B", "q": 1, "p": -30}
+        ]
     }
 }
 
@@ -35,7 +36,6 @@ def checkout(skus):
         return products[skus]
     
     if len(skus) > 1:
-        total = 0
         basket = {}
         
         for sku in list(skus):
@@ -46,17 +46,19 @@ def checkout(skus):
                 basket[sku] += 1
             else:
                 basket[sku] = 1
+                basket["total"] = 0
         print(basket)
+        return 0
 
-        for sku,quantity in basket.items():
-            if not sku in offers:
-                total += products[sku] * quantity
-            else:
-                num_single_items = basket[sku] % offers[sku]['q']
-                num_bundles = int(basket[sku] / offers[sku]['q'])
-                total += (num_single_items * products[sku] + num_bundles * offers[sku]['p'])
-        print(total)
-        return total
+        # for sku,quantity in basket.items():
+        #     if not sku in offers:
+        #         total += products[sku] * quantity
+        #     else:
+        #         num_single_items = basket[sku] % offers[sku]['q']
+        #         num_bundles = int(basket[sku] / offers[sku]['q'])
+        #         total += (num_single_items * products[sku] + num_bundles * offers[sku]['p'])
+        # print(total)
+        # return total
 
     return -1
 
@@ -66,6 +68,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
