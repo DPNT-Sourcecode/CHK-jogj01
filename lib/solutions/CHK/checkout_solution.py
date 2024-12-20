@@ -8,8 +8,18 @@ products = {
 # q => quantity
 # p => total price
 offers = {
-    'A': {'q': 3, 'p': 130},
-    'B': {'q': 2, 'p': 45}
+    'A': {
+        3: {},
+        5: {}
+    },
+    
+    'B': {
+        2: {}
+    },
+
+    'E': {
+        2: {}
+    }
 }
 
 # noinspection PyUnusedLocal
@@ -56,6 +66,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
