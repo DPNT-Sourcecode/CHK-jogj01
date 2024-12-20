@@ -69,30 +69,49 @@ def checkout(skus):
                 # }
 
                 sorted_q = sorted(offer_dict.keys(), reverse=True)
-                print(sorted_q)
-
-                idx = min(offer_dict.keys())
-                for offer_q in offer_dict.keys():
-                    if basket_q >= offer_q:
-                        if idx < offer_q:
-                            idx = offer_q
                 
-                # offer_list = [{'sku': 'A', 'q': 3, 'p': 130}]
-                offer_list = offer_dict[idx]
-                print(offer_list)
-                for dict_ in offer_list:
-                    sku_to_update = dict_["sku"]
-                    print(sku_to_update)
-                    if sku_to_update == sku:
-                        num_single_items = basket_q % dict_['q']
-                        num_bundles = int(basket_q / dict_['q'])
-                        print(num_single_items, num_bundles)
-                        basket[sku_to_update]["total"] += (
-                            num_single_items * products[sku_to_update] + num_bundles * dict_['p']
-                        )
-                        print(num_single_items * products[sku_to_update])
-                        print(num_bundles * dict_['p'])
-                        print("end IF")
+                i = 0
+                while i < len(sorted_q):
+                    # offer_list = [{'sku': 'A', 'q': 5, 'p': 200}]
+                    offer_list = offer_dict[i]
+                    print(offer_list)
+                    for dict_ in offer_list:
+                        sku_to_update = dict_["sku"]
+                        print(sku_to_update)
+                        if sku_to_update == sku:
+                            num_single_items = basket_q % dict_['q']
+                            num_bundles = int(basket_q / dict_['q'])
+                            print(num_single_items, num_bundles)
+                            basket[sku_to_update]["total"] += (
+                                num_single_items * products[sku_to_update] + num_bundles * dict_['p']
+                            )
+                            print(num_single_items * products[sku_to_update])
+                            print(num_bundles * dict_['p'])
+                            print("end IF")
+
+
+                # idx = min(offer_dict.keys())
+                # for offer_q in offer_dict.keys():
+                #     if basket_q >= offer_q:
+                #         if idx < offer_q:
+                #             idx = offer_q
+                
+                # # offer_list = [{'sku': 'A', 'q': 3, 'p': 130}]
+                # offer_list = offer_dict[idx]
+                # print(offer_list)
+                # for dict_ in offer_list:
+                #     sku_to_update = dict_["sku"]
+                #     print(sku_to_update)
+                #     if sku_to_update == sku:
+                #         num_single_items = basket_q % dict_['q']
+                #         num_bundles = int(basket_q / dict_['q'])
+                #         print(num_single_items, num_bundles)
+                #         basket[sku_to_update]["total"] += (
+                #             num_single_items * products[sku_to_update] + num_bundles * dict_['p']
+                #         )
+                #         print(num_single_items * products[sku_to_update])
+                #         print(num_bundles * dict_['p'])
+                #         print("end IF")
                     else:
                         try:
                             basket[sku_to_update]["total"] += dict_['p']
@@ -121,6 +140,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
