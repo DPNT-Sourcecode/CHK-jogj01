@@ -101,7 +101,7 @@ def checkout(skus):
                         print(f"sku_to_update in basket: {sku_to_update in basket}")
 
                         if (sku_to_update != sku) and (sku_to_update not in basket):
-                            continue
+                            basket[sku_to_update] = {"q": 1, "total": dict_['p']}
 
                         elif (sku_to_update != sku) and (sku_to_update in basket) and (basket_q < offer_q):
                             continue
@@ -141,6 +141,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
