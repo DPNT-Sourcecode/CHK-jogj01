@@ -107,7 +107,12 @@ def checkout(skus):
                         print()
         
         print(basket)
-        return basket
+        tot = 0
+        for price_dict in basket.values():
+            tot += price_dict["p"]
+        print(tot)
+
+        return tot
 
         
         # for sku, val_dict in basket.items():
@@ -203,5 +208,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
