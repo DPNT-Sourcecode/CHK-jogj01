@@ -99,7 +99,11 @@ def checkout(skus):
                         
                         basket[sku_to_update]["p"] += num_bundles * dict_['p']
                         remaining_items = single_items
+                        print(basket)
+                        
                 basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
+                print(basket)
+                print()
         
         print(basket)
         return basket
@@ -198,6 +202,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
