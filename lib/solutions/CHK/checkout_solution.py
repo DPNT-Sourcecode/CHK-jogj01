@@ -81,17 +81,16 @@ def checkout(skus):
                     # e.g. offer for buying 3 As:
                     # [{'sku': 'A', 'q': 3, 'p': 130}]
                     offer_list = offer_dict[q]
+                    print(offer_list)
                     for dict_ in offer_list:
                         sku_to_update = dict_['sku']
                         num_bundles = int(remaining_items / dict_['q'])
                         single_items = remaining_items % dict_['q']
-                        basket[sku]["p"] = num_bundles * dict_['p']
+                        print(sku_to_update, num_bundles, single_items)
+                        basket[sku_to_update]["p"] = num_bundles * dict_['p']
                         remaining_items = single_items
-                basket[sku]["p"] += products[sku] * remaining_items
-                        
-
-                
-        
+                basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
+        print(basket)
         return basket
 
         
@@ -188,6 +187,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
