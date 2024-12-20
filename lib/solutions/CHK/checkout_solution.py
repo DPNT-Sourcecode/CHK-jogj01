@@ -52,6 +52,13 @@ def checkout(skus):
             basket[sku]["q"] += 1
             basket[sku]["total"] += products[sku]
         print(basket)
+
+        for sku, dict_ in basket.items():
+            if sku in offers:
+                print(offers[sku])
+                print()
+                
+        
         return basket
 
         
@@ -148,6 +155,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
