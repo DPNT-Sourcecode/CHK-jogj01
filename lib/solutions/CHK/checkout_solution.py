@@ -83,7 +83,7 @@ def checkout(skus):
                 i = 0
                 remaining_items = basket_q
                 while i < len(sorted_q):
-                    print(i, remaining_items)
+                    print(i, remaining_items, sorted_q[i])
                     # offer_list = [{'sku': 'A', 'q': 5, 'p': 200}]
                     # offer_list = [{'sku': 'A', 'q': 3, 'p': 130}]
                     # offer_list = [
@@ -140,13 +140,5 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
-
-
-
-
-
-
-
-
 
 
