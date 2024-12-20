@@ -81,7 +81,7 @@ def checkout(skus):
                         offer_list = offer_dict[offer_q]
                         print(offer_list)
 
-                        remaining_items = basket_q
+                        remaining_items = basket[sku_to_update]["q"]
                         for dict_ in offer_list:
                             sku_to_update = dict_['sku']
                             basket[sku_to_update]["p"] = 0
@@ -194,6 +194,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
