@@ -13,12 +13,15 @@ import pytest
     ("AA", 100),
     ("AAA", 130),
     ("AAAA", 180),
-    ("AAAAA", 230),
+    ("AAAAA", 200),
     ("AABCDBAACDDD", 325),
     ("AABCDBA", 210),
     ("AABZTCDBA", -1),
     ("ABCa", -1),
     ("AxA", -1),
+    ("AACDAEE", 245),
+    ("AABCDAEE", 245),
+    ("AABCDBAEE", 260)
 
 ])
 def test_checkout(skus, expected_result):
