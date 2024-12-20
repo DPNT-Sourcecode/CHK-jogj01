@@ -47,7 +47,11 @@ def checkout(skus):
             else:
                 basket[sku] = {"q": 1, "total": 0}
         print(basket)
-        return 0
+
+        for sku, dict_ in basket.items():
+            if offer_dict := offers.get(sku, None):
+                print(offer_dict)
+
 
         # for sku,quantity in basket.items():
         #     if not sku in offers:
@@ -58,6 +62,7 @@ def checkout(skus):
         #         total += (num_single_items * products[sku] + num_bundles * offers[sku]['p'])
         # print(total)
         # return total
+        return 0
 
     return -1
 
@@ -67,6 +72,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
