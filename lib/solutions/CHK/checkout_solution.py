@@ -67,6 +67,10 @@ def checkout(skus):
                 #   3: [{'sku': 'A', 'q': 3, 'p': 130}], 
                 #   5: [{'sku': 'A', 'q': 5, 'p': 200}]}
                 # }
+
+                sorted_q = sorted(offer_dict.keys(), reverse=True)
+                print(sorted_q)
+
                 idx = min(offer_dict.keys())
                 for offer_q in offer_dict.keys():
                     if basket_q >= offer_q:
@@ -117,6 +121,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
