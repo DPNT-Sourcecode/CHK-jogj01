@@ -1,3 +1,4 @@
+
 products = {
     'A': 50,
     'B': 30,
@@ -56,6 +57,5 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
-
 
 
