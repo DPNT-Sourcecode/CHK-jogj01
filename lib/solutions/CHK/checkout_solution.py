@@ -99,7 +99,10 @@ def checkout(skus):
                         print(f"sku_to_update != sku: {sku_to_update != sku}")
                         print(f"sku_to_update in basket: {sku_to_update in basket}")
 
-                        if (sku_to_update != sku) and (sku_to_update in basket):
+                        if (sku_to_update != sku) and (sku_to_update not in basket):
+                            continue
+
+                        elif (sku_to_update != sku) and (sku_to_update in basket):
                             basket[sku_to_update]["total"] += dict_['q']
 
                         else:
@@ -133,5 +136,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
