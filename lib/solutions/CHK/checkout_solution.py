@@ -56,8 +56,6 @@ def checkout(skus):
         for sku, qp_dict in basket.items():
             basket_q = qp_dict['q']
             if sku in offers and basket_q > 0:
-                # reset total price in basket to 0
-                qp_dict['p'] = 0
 
                 # e.g. for product A:
                 # {
@@ -86,6 +84,8 @@ def checkout(skus):
                     print(offer_list)
                     for dict_ in offer_list:
                         sku_to_update = dict_['sku']
+                        # reset total price in basket to 0
+                        basket[sku_to_update]['p'] = 0
                         num_bundles = int(remaining_items / dict_['q'])
                         single_items = remaining_items % dict_['q']
                         print(sku_to_update, num_bundles, single_items)
@@ -189,5 +189,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
