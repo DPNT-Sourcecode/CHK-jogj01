@@ -83,6 +83,7 @@ def checkout(skus):
                 i = 0
                 remaining_items = basket_q
                 while i < len(sorted_q):
+                    offer_q = sorted_q[i]
                     print(i, remaining_items, sorted_q[i])
                     # offer_list = [{'sku': 'A', 'q': 5, 'p': 200}]
                     # offer_list = [{'sku': 'A', 'q': 3, 'p': 130}]
@@ -102,7 +103,7 @@ def checkout(skus):
                         if (sku_to_update != sku) and (sku_to_update not in basket):
                             continue
 
-                        elif (sku_to_update != sku) and (sku_to_update in basket) and (basket_q < sorted_q[i]):
+                        elif (sku_to_update != sku) and (sku_to_update in basket) and (basket_q < offer_q):
                             continue
 
                         elif (sku_to_update != sku) and (sku_to_update in basket):
@@ -140,5 +141,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
