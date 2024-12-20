@@ -66,8 +66,15 @@ def checkout(skus):
                 for offer_q in offer_dict.keys():
                     if basket_q >= offer_q:
                         # offer = [{'sku': 'A', 'q': 3, 'p': 130}]
-                        offer = offer_dict[offer_q]
-                        print(offer)
+                        offer_list = offer_dict[offer_q]
+                        for dict_ in offer_list:
+                            num_single_items = basket[sku] % offers[sku]['q']
+                            num_bundles = int(basket[sku] / offers[sku]['q'])
+                            total += (num_single_items * products[sku] + num_bundles * offers[sku]['p'])
+            else:
+                basket[sku]["total"] += products[sku] * basket_q
+
+                            
 
 
         # for sku,quantity in basket.items():
@@ -89,6 +96,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
