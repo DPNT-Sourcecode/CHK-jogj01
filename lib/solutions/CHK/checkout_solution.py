@@ -58,11 +58,14 @@ def checkout(skus):
         # }
         for sku, val_dict in basket.items():
             basket_q = val_dict["q"]
-            print(basket_q)
             if offer_dict := offers.get(sku, None):
-                print(offer_dict)
+                # offer_dict = {
+                #   3: [{'sku': 'A', 'q': 3, 'p': 130}], 
+                #   5: [{'sku': 'A', 'q': 5, 'p': 200}]}
+                # }
                 for offer_q in offer_dict.keys():
                     if basket_q >= offer_q:
+                        # offer = [{'sku': 'A', 'q': 3, 'p': 130}]
                         offer = offer_dict[offer_q]
                         print(offer)
 
@@ -86,6 +89,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
