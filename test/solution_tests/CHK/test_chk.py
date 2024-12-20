@@ -1,4 +1,4 @@
-from lib.solutions.CHK import checkout_solution_old
+from lib.solutions.CHK import checkout_solution
 import pytest
 
 
