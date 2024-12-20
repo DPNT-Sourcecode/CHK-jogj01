@@ -78,6 +78,10 @@ def checkout(skus):
 
                 remaining_items = basket_q
                 for offer_q in sorted_q:
+                    
+                    if basket_q < offer_q:
+                        continue
+                    
                     # e.g. offer for buying 3 As:
                     # [{'sku': 'A', 'q': 3, 'p': 130}]
                     offer_list = offer_dict[offer_q]
@@ -194,6 +198,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
