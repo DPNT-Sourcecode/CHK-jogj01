@@ -43,15 +43,13 @@ def checkout(skus):
                 return -1 
             
             basket[sku]["q"] += 1
+            basket[sku]["p"] += products[sku]
         print(basket)
 
         for sku, qp_dict in basket.items():
             basket_q = qp_dict['q']
 
-            if basket_q > 0 and sku not in offers:
-                basket[sku]["p"] += basket_q * products[sku]
-
-            elif basket_q > 0 and sku in offers:
+            if basket_q > 0 and sku in offers:
                 # e.g. for product A:
                 # {
                 #   3: [{'sku': 'A', 'q': 3, 'p': 130}], 
@@ -208,6 +206,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
