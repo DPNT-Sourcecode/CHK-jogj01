@@ -71,10 +71,12 @@ def checkout(skus):
                 sorted_q = sorted(offer_dict.keys(), reverse=True)
                 
                 i = 0
+                remaining_items = basket_q
                 while i < len(sorted_q):
                     # offer_list = [{'sku': 'A', 'q': 5, 'p': 200}]
                     offer_list = offer_dict[i]
                     print(offer_list)
+
                     for dict_ in offer_list:
                         sku_to_update = dict_["sku"]
                         print(sku_to_update)
@@ -140,6 +142,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
