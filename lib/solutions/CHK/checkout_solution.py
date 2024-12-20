@@ -96,11 +96,8 @@ def checkout(skus):
                     for dict_ in offer_list:
                         sku_to_update = dict_["sku"]
 
-                        if sku_to_update != sku:
-                            try:
-                                basket[sku_to_update]["total"] += dict_['q']
-                            except:
-                                pass
+                        if (sku_to_update != sku) and (sku_to_update in basket):
+                            basket[sku_to_update]["total"] += dict_['q']
 
                         else:
                             num_bundles = int(remaining_items / dict_['q'])
@@ -133,6 +130,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
