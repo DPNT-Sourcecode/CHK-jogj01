@@ -58,6 +58,12 @@ def checkout(skus):
         # }
         for sku, val_dict in basket.items():
             basket_q = val_dict["q"]
+
+            if basket_q == 1:
+                basket[sku]["total"] += products[sku] * basket_q
+
+            
+            
             if offer_dict := offers.get(sku, None):
                 # offer_dict = {
                 #   3: [{'sku': 'A', 'q': 3, 'p': 130}], 
@@ -113,5 +119,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
