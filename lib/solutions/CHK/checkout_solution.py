@@ -76,7 +76,12 @@ def checkout(skus):
                 print(sorted_q)
                 print()
 
-                remaining_q = 
+                remaining_q = basket_q
+                for q in sorted_q:
+                    # e.g. offer for buying 3 As:
+                    # [{'sku': 'A', 'q': 3, 'p': 130}]
+                    offer_list = offer_dict[q]
+
                 
         
         return basket
@@ -175,6 +180,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
