@@ -37,25 +37,28 @@ def checkout(skus):
         return products[skus]
     
     if len(skus) > 1:
-        basket = {}
+        # basket = {
+        #   'A': {'q': 0, 'total': 0}, 
+        #   'B': {'q': 0, 'total': 0}, 
+        #   'C': {'q': 0, 'total': 0}, 
+        #   'D': {'q': 0, 'total': 0}, 
+        #   'E': {'q': 0, 'total': 0}
+        # }
+        basket = {sku: {"q": 0, "total": 0} for sku in products.keys()}
         
         for sku in list(skus):
             if sku not in products:
                 return -1 
             
-            if sku in basket:
-                basket[sku]["q"] += 1
-            else:
-                basket[sku] = {"q": 1, "total": 0}
+            basket[sku]["q"] += 1
+            
+            # if sku in basket:
+            #     basket[sku]["q"] += 1
+            # else:
+            #     basket[sku] = {"q": 1, "total": 0}
         print(basket)
 
-        # basket = {
-        #   'A': {'q': 3, 'total': 0}, 
-        #   'B': {'q': 2, 'total': 0}, 
-        #   'C': {'q': 1, 'total': 0}, 
-        #   'D': {'q': 1, 'total': 0}, 
-        #   'E': {'q': 2, 'total': 0}
-        # }
+        
         for sku, val_dict in basket.items():
             basket_q = val_dict["q"]
 
@@ -145,6 +148,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
