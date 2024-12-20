@@ -30,4 +30,4 @@ import pytest
     ("Z", -1),
 ])
 def test_checkout(skus, expected_result):
-    assert checkout_solution_old.checkout(skus) == expected_result
+    assert checkout_solution.checkout(skus) == expected_result
