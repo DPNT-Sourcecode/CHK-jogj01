@@ -20,7 +20,6 @@ offers = {
         2: [
             {"sku": "E", "q": 2, "p": 80},
             {"sku": "B", "q": 1, "p": -30}
-            # {"sku": "B", "q": 1, "p": 0}  # for OPTION A and OPTION B
         ]
     }
 }
@@ -44,7 +43,6 @@ def checkout(skus):
                 return -1 
             
             basket[sku]["q"] += 1
-            # basket[sku]["p"] += products[sku]
         print(basket)
 
         for sku, qp_dict in basket.items():
@@ -103,22 +101,6 @@ def checkout(skus):
                                 promo_q = dict_["q"]
                                 promo_p = dict_["p"]
                                 basket[sku_to_update]["p"] += promo_q * promo_p
-
-                                ### OPTION B:
-                                # promo_q = dict_["q"]
-                                # promo_p = dict_["p"]
-                                # remaining_q = basket[sku_to_update]["q"] - promo_q
-                                # remaining_p = products[sku_to_update]
-                                # basket[sku_to_update]["p"] = promo_q * promo_p + remaining_q * remaining_p
-                                
-                                #### OPTION A:
-                                # print(basket[sku_to_update]["q"])
-                                # print(dict_["q"])
-                                # num_bundles = int(basket[sku_to_update]["q"] / dict_["q"])
-                                # single_items = basket[sku_to_update]["q"] % dict_["q"]
-                                # print(sku_to_update, num_bundles, single_items)
-                                # basket[sku_to_update]["p"] += num_bundles * dict_["p"]
-                                # basket[sku_to_update]["p"] += products[sku_to_update] * single_items
                                 break
 
                             if sku == sku_to_update:
@@ -156,5 +138,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
