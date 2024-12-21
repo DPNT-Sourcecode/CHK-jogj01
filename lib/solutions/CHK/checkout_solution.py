@@ -111,7 +111,7 @@ def checkout(skus):
                             print(sku_to_update, remaining_items, products[sku_to_update])
                             basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
                             print(basket)
-                            print()                              
+                            print()                       
 
                             if sku != sku_to_update:
                                 print("from sku != sku_to_update")
@@ -155,5 +155,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
