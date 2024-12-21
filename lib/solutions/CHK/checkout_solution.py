@@ -131,13 +131,12 @@ def checkout(skus):
                                 remaining_items = single_items
                                 print(basket)   
                             
-                        # if remaining_items > 0:
-                            print("printing the remaining items:")
-                            print(sku_to_update, remaining_items, products[sku_to_update])
-                            # if sku == sku_to_update:
-                            basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
-                            print(basket)
-                            print()     
+                    print("printing the remaining items:")
+                    print(sku_to_update, remaining_items, products[sku_to_update])
+                    # if sku == sku_to_update:
+                    basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
+                    print(basket)
+                    print()     
                             
         
         print(basket)
@@ -157,6 +156,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
