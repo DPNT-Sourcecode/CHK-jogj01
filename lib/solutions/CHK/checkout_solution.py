@@ -56,7 +56,7 @@ def checkout(skus):
                 print(basket)
                 print()
 
-            elif basket_q > 0 and sku in offers:
+            else:
                 print("print from elif")
                 # e.g. for product A:
                 # {
@@ -152,6 +152,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
