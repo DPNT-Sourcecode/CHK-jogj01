@@ -82,6 +82,7 @@ def checkout(skus):
                 #     print()
                 # else:
                 remaining_items = basket_q
+                basket[sku]["p"] = 0
                 for offer_q in sorted_q:
                     # e.g. offer for buying 3 As:
                     # [{"sku": "A", "q": 3, "p": 130}]
@@ -91,14 +92,13 @@ def checkout(skus):
                     for dict_ in offer_list:
                         print(sku)
                         sku_to_update = dict_["sku"]
-                        basket[sku_to_update]["p"] = 0                 
-
-                        # if sku != sku_to_update:
-                        #     print("from sku != sku_to_update")
-                        #     promo_q = dict_["q"]
-                        #     promo_p = dict_["p"]
-                        #     basket[sku_to_update]["p"] += promo_q * promo_p
-                        #     break
+                                         
+                        if sku != sku_to_update:
+                            print("from sku != sku_to_update")
+                            promo_q = dict_["q"]
+                            promo_p = dict_["p"]
+                            basket[sku_to_update]["p"] += promo_q * promo_p
+                            break
 
                         if sku == sku_to_update:
                             print("sku == sku_to_update")
@@ -110,12 +110,12 @@ def checkout(skus):
                             remaining_items = single_items
                             print(basket)   
                         
-                    print("printing the remaining items:")
-                    print(sku_to_update, remaining_items, products[sku_to_update])
-                    # if sku == sku_to_update:
-                    basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
-                    print(basket)
-                    print()     
+                print("printing the remaining items:")
+                print(sku_to_update, remaining_items, products[sku_to_update])
+                # if sku == sku_to_update:
+                basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
+                print(basket)
+                print()     
                             
         
         print(basket)
@@ -135,6 +135,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
