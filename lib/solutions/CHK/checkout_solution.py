@@ -56,8 +56,9 @@ def checkout(skus):
                 print(basket)
                 print()
 
-            else:
+            elif basket_q > 0 and sku in offers:
                 print("print from elif")
+                print(sku)
                 # e.g. for product A:
                 # {
                 #   3: [{"sku": "A", "q": 3, "p": 130}], 
@@ -81,6 +82,8 @@ def checkout(skus):
 
                 if basket_q < sorted_q[-1]:
                     basket[sku]["p"] = basket_q * products[sku]
+                    print(basket)
+                    print()
                 else:
                     remaining_items = basket_q
                     for offer_q in sorted_q:
@@ -152,12 +155,5 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
-
-
-
-
-
-
-
 
 
