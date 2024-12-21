@@ -18,7 +18,7 @@ offers = {
 
     "E": {
         2: [
-            # {"sku": "E", "q": 2, "p": 80},
+            #{"sku": "E", "q": 2, "p": 80},
             {"sku": "B", "q": 1, "p": -30}
         ]
     }
@@ -82,7 +82,7 @@ def checkout(skus):
                     print()
                 else:
                     remaining_items = basket_q
-                    basket[sku]["p"] = 0
+                    
                     for offer_q in sorted_q:
                         # e.g. offer for buying 3 As:
                         # [{"sku": "A", "q": 3, "p": 130}]
@@ -94,6 +94,7 @@ def checkout(skus):
                             sku_to_update = dict_["sku"]
                                             
                             if sku != sku_to_update:
+                                basket[sku]["p"] = 0
                                 print("from sku != sku_to_update")
                                 promo_q = dict_["q"]
                                 promo_p = dict_["p"]
@@ -101,6 +102,7 @@ def checkout(skus):
                                 break
 
                             if sku == sku_to_update:
+                                basket[sku]["p"] = 0
                                 print("sku == sku_to_update")
                                 num_bundles = int(remaining_items / dict_["q"])
                                 single_items = remaining_items % dict_["q"]
@@ -135,6 +137,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
