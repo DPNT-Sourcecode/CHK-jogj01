@@ -91,7 +91,7 @@ def checkout(skus):
                     for dict_ in offer_list:
                         print(sku)
                         sku_to_update = dict_["sku"]
-                        basket[sku_to_update]["p"] = 0                 
+                        # basket[sku_to_update]["p"] = 0                 
 
                         if sku != sku_to_update:
                             print("from sku != sku_to_update")
@@ -135,6 +135,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
