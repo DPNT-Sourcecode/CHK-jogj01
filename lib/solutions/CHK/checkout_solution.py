@@ -92,9 +92,9 @@ def checkout(skus):
                         for dict_ in offer_list:
                             print(sku)
                             sku_to_update = dict_["sku"]
+                            basket[sku_to_update]["p"] = 0
                                             
                             if sku != sku_to_update:
-                                basket[sku]["p"] = 0
                                 print("from sku != sku_to_update")
                                 promo_q = dict_["q"]
                                 promo_p = dict_["p"]
@@ -102,7 +102,6 @@ def checkout(skus):
                                 break
 
                             if sku == sku_to_update:
-                                basket[sku]["p"] = 0
                                 print("sku == sku_to_update")
                                 num_bundles = int(remaining_items / dict_["q"])
                                 single_items = remaining_items % dict_["q"]
@@ -137,6 +136,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
