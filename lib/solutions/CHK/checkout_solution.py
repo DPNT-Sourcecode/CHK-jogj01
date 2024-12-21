@@ -18,7 +18,7 @@ offers = {
 
     "E": {
         2: [
-            {"sku": "E", "q": 2, "p": 80},
+            # {"sku": "E", "q": 2, "p": 80},
             {"sku": "B", "q": 1, "p": -30}
         ]
     }
@@ -135,5 +135,6 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
