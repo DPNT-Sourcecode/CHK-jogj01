@@ -105,14 +105,7 @@ def checkout(skus):
                                 
                                 basket[sku_to_update]["p"] += num_bundles * dict_["p"]
                                 remaining_items = single_items
-                                print(basket)
-
-                            print("printing the remaining items:")
-                            print(sku_to_update, remaining_items, products[sku_to_update])
-                            # if sku == sku_to_update:
-                            basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
-                            print(basket)
-                            print()                       
+                                print(basket)                  
 
                             if sku != sku_to_update:
                                 print("from sku != sku_to_update")
@@ -138,6 +131,14 @@ def checkout(skus):
                                 # basket[sku_to_update]["p"] += products[sku_to_update] * single_items
                                 break
                             
+                    if remaining_items > 0:
+                        print("printing the remaining items:")
+                        print(sku_to_update, remaining_items, products[sku_to_update])
+                        # if sku == sku_to_update:
+                        basket[sku_to_update]["p"] += products[sku_to_update] * remaining_items
+                        print(basket)
+                        print()     
+                            
         
         print(basket)
         tot = 0
@@ -156,6 +157,7 @@ if __name__ == "__main__":
 
     skus = sys.argv[1]
     checkout(skus)
+
 
 
 
